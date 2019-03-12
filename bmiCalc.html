@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center bg-danger text-white">BMI Calculator</div>
+            <div class="card-body">
+                <form class="w-50 m-auto" onsubmit="return false">
+                    <div class="form-group">
+                        <label for="">Weight</label>
+                        <input type="text" id="weight" placeholder="Weight in KG" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Height</label>
+                        <input type="text" id="height" placeholder="Height in Ft" required class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="">BMI Value</label>
+                        <input type="number" id="bmiValue" class="form-control">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success" onclick="getBmiValue()">Check BMI</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="card-footer text-center bg-info text-white">A healthy BMI ranges between 19 and 25</div>
+        </div>
+    </div>
+
+    <script>
+        function getBmiValue(){
+            let weight = document.getElementById("weight").value;
+            let height = document.getElementById("height").value;
+
+            height = height * 12;   // 12 inch = 1ft
+            height = height * 0.025 // now height in meter
+
+            var newBmiValue = weight / Math.pow(height,2);
+
+            let newBmiValue1 = Math.round(newBmiValue);
+
+            document.getElementById("bmiValue").value = newBmiValue1;
+
+        }
+    </script>
+</body>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
+
+<!-- Explanation -->
+<!-- 12 inch = 1ft -->
